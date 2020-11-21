@@ -32,3 +32,48 @@
 <br>
 <br>
 <br>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> ID</th>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cin">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> CIN</th>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.cin}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> Name</th>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> Type</th>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="cv">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> CV</th>
+    <td mat-cell class="px-12" *matCellDef="let element">
+      <a [href]="element.cv" target="_blank">
+        <mat-icon>picture_as_pdf</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="createdDate">
+    <th mat-header-cell class="px-12" *matHeaderCellDef> Created Date</th>
+    <td mat-cell class="px-12" *matCellDef="let element">
+      {{element.createdDate | date :'d MMMM y, HH:mm'}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
