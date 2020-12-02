@@ -1,0 +1,26 @@
+<div class="container">
+  <p>member-form works!</p>
+
+  <h4>Create New member</h4>
+
+<form [formGroup]="form" *ngIf="!!form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="cin" formControlName="cin">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="cv" formControlName="cv">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="type" formControlName="type">
+  </mat-form-field>
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="form.invalid">Submit</button>
+  </div>
+</form>
+
+
+</div>
