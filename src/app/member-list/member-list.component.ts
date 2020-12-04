@@ -8,7 +8,7 @@ import {Member} from '../../models/member.model';
   styleUrls: ['./member-list.component.scss']
 })
 export class MemberListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'cin', 'name', 'type', 'cv', 'createdDate'];
+  displayedColumns: string[] = ['id', 'cin', 'name', 'type', 'cv', 'createdDate', 'actions'];
 
   dataSource: Member[] = [];
 
@@ -22,7 +22,10 @@ export class MemberListComponent implements OnInit {
   }
 
   private fetchDataSource(): void {
-    this.dataSource = this.memberService.placeholderMembers;
+    this.memberService.getAllMembers().then(data => this.dataSource = data);
   }
 
+  onRemoveAccount(id: any): void {
+    this.memberService.removeMemberById(id).then(() => this.fetchDataSource());
+  }
 }

@@ -1,41 +1,12 @@
-<p>member-list works!</p>
+<div class="my-16" fxLayout="row" fxLayoutAlign="end center">
+  <button mat-raised-button color="primary" routerLink="create">
+    <mat-icon class="s-24 mr-4">add</mat-icon>
+    Create New
+  </button>
 
-<table border="1px">
-  <thead>
-  <tr>
-    <td>ID</td>
-    <td>CIN</td>
-    <td>Name</td>
-    <td>Type</td>
-    <td>CV</td>
-    <td>created Date</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let element of dataSource; let index = index;">
-    <td>{{element.id}}</td>
-    <td>{{element.cin}}</td>
-    <td>{{element.name}}</td>
-    <td>{{element.type}}</td>
-    <td>{{element.cv}}</td>
-    <td>{{element.createdDate | date :'d MMMM y, HH:mm'}}</td>
-  </tr>
-  </tbody>
-</table>
+</div>
 
-<br>
-<br>
-<br>
-<br>
-{{dataSource | json}}
-<br>
-<br>
-<br>
-<br>
-
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100-p">
   <ng-container matColumnDef="id">
     <th mat-header-cell class="px-12" *matHeaderCellDef> ID</th>
     <td mat-cell class="px-12" *matCellDef="let element"> {{element.id}} </td>
@@ -71,6 +42,18 @@
     <th mat-header-cell class="px-12" *matHeaderCellDef> Created Date</th>
     <td mat-cell class="px-12" *matCellDef="let element">
       {{element.createdDate | date :'d MMMM y, HH:mm'}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="actions" stickyEnd>
+    <th mat-header-cell class="px-12 w-120" *matHeaderCellDef></th>
+    <td mat-cell class="px-12 w-120" *matCellDef="let element">
+      <button mat-icon-button [routerLink]="element.id + '/edit'">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="onRemoveAccount(element.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+
     </td>
   </ng-container>
 
