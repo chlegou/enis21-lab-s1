@@ -49,8 +49,14 @@ export class MemberFormComponent implements OnInit {
   onSubmit(): void {
     console.log(this.form.value);
     const objectToSubmit: Member = {...this.item, ...this.form.value};
-    this.memberService.saveMember(objectToSubmit).then(() => {
-      this.router.navigate(['./members']);
-    });
+    if (this.isFormInEditMode()) {
+      this.memberService.updateMember(this.currentItemId, objectToSubmit).then(() => {
+        this.router.navigate(['./members']);
+      });
+    } else {
+      this.memberService.createMember(objectToSubmit).then(() => {
+        this.router.navigate(['./members']);
+      });
+    }
   }
 }

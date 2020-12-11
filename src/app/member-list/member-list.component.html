@@ -20,7 +20,7 @@
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell class="px-12" *matHeaderCellDef> Name</th>
-    <td mat-cell class="px-12" *matCellDef="let element"> {{element.name}} </td>
+    <td mat-cell class="px-12" *matCellDef="let element"> {{element.nom + ' ' + element.prenom}} </td>
   </ng-container>
 
   <!-- Weight Column -->
