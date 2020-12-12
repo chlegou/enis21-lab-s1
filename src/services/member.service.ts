@@ -23,10 +23,10 @@ export class MemberService {
   }
 
   getMemberById(id: string): Promise<Member> {
-    // return this.httpClient.get<Member>('linkToRestApi').toPromise();
-    return new Promise(resolve => resolve(
-      this.placeholderMembers.filter(item => item.id === id)[0] ?? null
-    ));
+    return this.httpClient.get<Member>(`${this.path}/membres/${id}`).toPromise();
+    // return new Promise(resolve => resolve(
+    //   this.placeholderMembers.filter(item => item.id === id)[0] ?? null
+    // ));
   }
 
   /**

@@ -1,0 +1,14 @@
+<div style="min-width: 200px; max-width: 500px">
+  <h1 matDialogTitle>{{title}}</h1>
+  <mat-dialog-content>
+    <div>{{message}}</div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="mt-24 mb-0" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-button mat-dialog-close cdkFocusInitial>
+      <span>{{cancelButtonLabel}}</span>
+    </button>
+    <button mat-raised-button [color]="confirmButtonColor" [mat-dialog-close]="true">
+      <span>{{confirmButtonLabel}}</span>
+    </button>
+  </mat-dialog-actions>
+</div>
