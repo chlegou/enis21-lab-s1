@@ -23,7 +23,7 @@ export class MemberFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentItemId = this.activatedRoute.snapshot.params.id;
-    if(!!this.currentItemId) {
+    if (!!this.currentItemId) {
       this.memberService.getMemberById(this.currentItemId).then(item => {
         this.item = item;
         this.initForm(item);

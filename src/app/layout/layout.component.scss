@@ -1,0 +1,32 @@
+@import "../../@root/scss/root";
+
+mat-sidenav-container {
+  height: 100% !important;
+
+  mat-sidenav-content {
+    mat-toolbar {
+      position: fixed
+    }
+  }
+}
+
+mat-toolbar {
+  .toolbar-separator {
+    height: 64px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+
+    @include media-breakpoint('xs') {
+      height: 56px;
+    }
+  }
+
+  .toolbar-button{
+    min-width: 64px;
+    height: 64px;
+
+    @include media-breakpoint('xs') {
+      height: 56px;
+    }
+  }
+}
