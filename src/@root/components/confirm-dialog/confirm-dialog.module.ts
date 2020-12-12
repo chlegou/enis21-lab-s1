@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 
 import {MaterialModule} from '../../material/material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {ConfirmDialogComponent} from "./confirm-dialog.component";
+import {ConfirmDialogComponent} from './confirm-dialog.component';
 
 @NgModule({
   declarations: [

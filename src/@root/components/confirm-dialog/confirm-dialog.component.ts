@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss']
@@ -13,11 +14,6 @@ export class ConfirmDialogComponent {
   public confirmButtonColor = 'accent';
   public cancelButtonLabel = 'Cancel';
 
-  /**
-   * Constructor
-   *
-   * @param {MatDialogRef<ConfirmDialogComponent>} dialogRef
-   */
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogComponent>
   ) {
